@@ -1,0 +1,213 @@
+/* Tech Stack Section Styles */
+.tech-stack {
+    padding: 100px 20px;
+    text-align: center;
+}
+
+.section-title {
+    font-size: 3rem;
+    font-weight: 800;
+    margin-bottom: 60px;
+    background: var(--gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.tech-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.tech-category {
+    background: var(--glass);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    padding: 40px 30px;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Shimmer effect for tech categories */
+.tech-category::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+    transition: left 0.5s ease;
+}
+
+.tech-category:hover::before {
+    left: 100%;
+}
+
+.tech-category:hover {
+    transform: translateY(-10px) scale(1.02);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+}
+
+.tech-category h3 {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+    color: var(--accent);
+}
+
+.tech-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+}
+
+.tech-tag {
+    background: rgba(99, 102, 241, 0.2);
+    color: var(--text-primary);
+    padding: 8px 16px;
+    border-radius: 25px;
+    font-size: 0.9rem;
+    border: 1px solid rgba(99, 102, 241, 0.3);
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.tech-tag:hover {
+    background: rgba(99, 102, 241, 0.4);
+    transform: scale(1.1);
+}
+
+/* Advanced hover animations for tech tags */
+.tech-tag:hover {
+    transform: scale(1.1) rotate(2deg);
+    box-shadow: 0 5px 15px rgba(99, 102, 241, 0.3);
+}
+
+.tech-tag:active {
+    transform: scale(0.95);
+}
+
+/* Responsive design for tech stack */
+@media (max-width: 768px) {
+    .tech-stack {
+        padding: 60px 20px;
+    }
+
+    .section-title {
+        font-size: 2.5rem;
+        margin-bottom: 40px;
+    }
+
+    .tech-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .tech-category {
+        padding: 30px 20px;
+    }
+
+    .tech-category h3 {
+        font-size: 1.3rem;
+        margin-bottom: 15px;
+    }
+
+    .tech-tag {
+        font-size: 0.8rem;
+        padding: 6px 12px;
+    }
+}
+
+@media (max-width: 480px) {
+    .tech-stack {
+        padding: 40px 15px;
+    }
+
+    .section-title {
+        font-size: 2rem;
+    }
+
+    .tech-category {
+        padding: 25px 15px;
+    }
+
+    .tech-tags {
+        gap: 8px;
+    }
+
+    .tech-tag {
+        font-size: 0.75rem;
+        padding: 5px 10px;
+    }
+}
+
+/* Animation for tech categories appearing on scroll */
+.tech-category.fade-in {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.6s ease;
+}
+
+.tech-category.fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Staggered animation delay for multiple tech categories */
+.tech-category:nth-child(1) {
+    transition-delay: 0.1s;
+}
+
+.tech-category:nth-child(2) {
+    transition-delay: 0.2s;
+}
+
+.tech-category:nth-child(3) {
+    transition-delay: 0.3s;
+}
+
+.tech-category:nth-child(4) {
+    transition-delay: 0.4s;
+}
+
+/* Special effects for different tech categories */
+.tech-category:nth-child(1):hover {
+    box-shadow: 0 20px 40px rgba(99, 102, 241, 0.2);
+}
+
+.tech-category:nth-child(2):hover {
+    box-shadow: 0 20px 40px rgba(139, 92, 246, 0.2);
+}
+
+.tech-category:nth-child(3):hover {
+    box-shadow: 0 20px 40px rgba(6, 182, 212, 0.2);
+}
+
+.tech-category:nth-child(4):hover {
+    box-shadow: 0 20px 40px rgba(16, 185, 129, 0.2);
+}
+
+/* Pulsing animation for tech tags */
+@keyframes pulse-tech {
+    0% {
+        box-shadow: 0 0 0 0 rgba(99, 102, 241, 0.4);
+    }
+
+    70% {
+        box-shadow: 0 0 0 10px rgba(99, 102, 241, 0);
+    }
+
+    100% {
+        box-shadow: 0 0 0 0 rgba(99, 102, 241, 0);
+    }
+}
+
+.tech-tag:focus {
+    animation: pulse-tech 1.5s infinite;
+}
